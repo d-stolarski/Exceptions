@@ -8,7 +8,7 @@ public class Person {
     public Person() {
     }
 
-    public Person(String firstName, String lastName, int age, String pesel) {
+    public Person(String firstName, String lastName, int age, String pesel) throws NameUndefinedException, IncorrectAgeException {
         setFirstName(firstName);
         setLastName(lastName);
         setAge(age);
@@ -19,7 +19,7 @@ public class Person {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(String firstName) throws NameUndefinedException {
         if (firstName.equals("null") || firstName.length() < 2) {
             throw new NameUndefinedException();
         }
@@ -30,7 +30,7 @@ public class Person {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(String lastName) throws NameUndefinedException {
         if (lastName.equals("null") || lastName.length() < 2) {
             throw new NameUndefinedException();
         }
@@ -41,7 +41,7 @@ public class Person {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(int age) throws IncorrectAgeException {
         if(age < 1){
             throw new IncorrectAgeException();
         }
